@@ -7,7 +7,7 @@ int c = 0;
 %%
 
 [AEIOUaeiou] { v++; }
-[^ \n] { c++; }
+[A-Za-z] { c++; }
 \n {return 0 ;}
 
 %%
