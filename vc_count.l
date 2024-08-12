@@ -8,10 +8,11 @@ int c = 0;
 
 [AEIOUaeiou] { v++; }
 [A-Za-z] { c++; }
-\n {return 0 ;}
+[^A-Za-z \n] ;
+\n { return 0; }
 
 %%
-
+int yywrap(){}
 int main()
 {
      printf("\nEnter a sentence : ");
