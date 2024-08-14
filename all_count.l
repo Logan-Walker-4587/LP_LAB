@@ -21,7 +21,7 @@ int identifier_count = 0;
 
 "=="|"<"|"<="|">"|">="|"!="  { relational_operator_count++; }
 
-"include"|"stdio.h"|"if"|"else"|"while"|"for"|"printf"|"int"|"char"|"float"|"do"|"static" {
+"include"|"stdio.h"|"if"|"else"|"while"|"for"|"printf"|"int"|"char"|"float"|"do"|"static"|"main"|"return" {
 
 }
 
