@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 5
-#define YY_END_OF_BUFFER 6
+#define YY_NUM_RULES 8
+#define YY_END_OF_BUFFER 9
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -360,27 +360,28 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[10] =
+static const flex_int16_t yy_accept[19] =
     {   0,
-        0,    0,    6,    3,    4,    5,    1,    2,    0
+        0,    0,    9,    7,    6,    6,    7,    2,    1,    4,
+        3,    4,    5,    6,    4,    2,    5,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
+        1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
+        1,    1,    2,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    3,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    4,    5,    5,    5,    4,    5,
-        5,    5,    4,    5,    5,    5,    5,    5,    4,    5,
-        5,    5,    5,    5,    4,    5,    5,    5,    5,    5,
-        1,    1,    1,    1,    1,    1,    4,    5,    5,    5,
+        1,    2,    4,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    5,    5,    5,
+        5,    5,    5,    5,    5,    5,    5,    1,    6,    7,
+        8,    9,    1,    1,   10,   10,   10,   10,   10,   10,
+       10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
+       10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
+        1,    1,    1,    1,   10,    1,   10,   10,   10,   10,
 
-        4,    5,    5,    5,    4,    5,    5,    5,    5,    5,
-        4,    5,    5,    5,    5,    5,    4,    5,    5,    5,
-        5,    5,    1,    1,    1,    1,    1,    1,    1,    1,
+       10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
+       10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
+       10,   10,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -397,31 +398,35 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[6] =
+static const YY_CHAR yy_meta[11] =
     {   0,
-        1,    1,    1,    1,    1
+        1,    2,    2,    1,    3,    1,    1,    1,    1,    3
     } ;
 
-static const flex_int16_t yy_base[10] =
+static const flex_int16_t yy_base[21] =
     {   0,
-        0,    0,    6,    7,    7,    7,    7,    7,    7
+        0,    0,   19,   20,    0,    0,   10,   12,   20,    8,
+        7,    6,    0,    0,   20,    8,    0,   20,   10,    8
     } ;
 
-static const flex_int16_t yy_def[10] =
+static const flex_int16_t yy_def[21] =
     {   0,
-        9,    1,    9,    9,    9,    9,    9,    9,    0
+       18,    1,   18,   18,   19,   19,   18,   18,   18,   18,
+       18,   18,   20,   19,   18,   18,   20,    0,   18,   18
     } ;
 
-static const flex_int16_t yy_nxt[13] =
+static const flex_int16_t yy_nxt[31] =
     {   0,
-        4,    5,    6,    7,    8,    9,    3,    9,    9,    9,
-        9,    9
+        4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
+       17,   14,   16,   15,   15,   15,   16,   15,   18,    3,
+       18,   18,   18,   18,   18,   18,   18,   18,   18,   18
     } ;
 
-static const flex_int16_t yy_chk[13] =
+static const flex_int16_t yy_chk[31] =
     {   0,
-        1,    1,    1,    1,    1,    3,    9,    9,    9,    9,
-        9,    9
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+       20,   19,   16,   12,   11,   10,    8,    7,    3,   18,
+       18,   18,   18,   18,   18,   18,   18,   18,   18,   18
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -438,13 +443,20 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "vc_count.l"
-#line 2 "vc_count.l"
-#include<stdio.h>
-int v = 0;
-int c = 0;
-#line 447 "lex.yy.c"
-#line 448 "lex.yy.c"
+#line 1 "all_count.l"
+#line 2 "all_count.l"
+#include <stdio.h>
+#include <string.h>
+
+// Counters for various elements
+int statement_count = 0;
+int integer_count = 0;
+int assignment_operator_count = 0;
+int relational_operator_count = 0;
+int identifier_count = 0;
+
+#line 459 "lex.yy.c"
+#line 460 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -661,10 +673,11 @@ YY_DECL
 		}
 
 	{
-#line 7 "vc_count.l"
+#line 14 "all_count.l"
 
 
-#line 668 "lex.yy.c"
+
+#line 681 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -691,13 +704,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 10 )
+				if ( yy_current_state >= 19 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 7 );
+		while ( yy_base[yy_current_state] != 20 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -723,31 +736,46 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 9 "vc_count.l"
-{ v++; }
+#line 17 "all_count.l"
+{ statement_count++; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "vc_count.l"
-{ c++; }
+#line 20 "all_count.l"
+{ integer_count++; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 11 "vc_count.l"
-;
+#line 23 "all_count.l"
+{ assignment_operator_count++; }
 	YY_BREAK
 case 4:
-/* rule 4 can match eol */
 YY_RULE_SETUP
-#line 12 "vc_count.l"
-{ return 0; }
+#line 26 "all_count.l"
+{ relational_operator_count++; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 14 "vc_count.l"
+#line 29 "all_count.l"
+{ identifier_count++; }
+	YY_BREAK
+case 6:
+/* rule 6 can match eol */
+YY_RULE_SETUP
+#line 32 "all_count.l"
+{ /* Ignore whitespace */ }
+	YY_BREAK
+case 7:
+YY_RULE_SETUP
+#line 35 "all_count.l"
+{ /* Ignore everything else */ }
+	YY_BREAK
+case 8:
+YY_RULE_SETUP
+#line 37 "all_count.l"
 ECHO;
 	YY_BREAK
-#line 751 "lex.yy.c"
+#line 779 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1044,7 +1072,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 10 )
+			if ( yy_current_state >= 19 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1072,11 +1100,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 10 )
+		if ( yy_current_state >= 19 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 9);
+	yy_is_jam = (yy_current_state == 18);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1752,15 +1780,35 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 14 "vc_count.l"
+#line 37 "all_count.l"
 
-int yywrap(){}
-int main()
+
+int yywrap();
+int main(int argc, char** argv)
 {
-     printf("\nEnter a sentence : ");
-     yylex();
-     printf("\nno.of vowels = %d",v);
-     printf("\nno.of consonants = %d",c);
-     return 0 ;
+    if (argc != 2) {
+        printf("Usage: %s <C program file>\n", argv[0]);
+        return 1;
+    }
+
+    FILE* fd = fopen(argv[1], "r");
+    if (!fd) {
+        perror("File opening failed");
+        return 1;
+    }
+
+    yyin = fd;
+    yylex();
+
+    fclose(fd);
+
+    // Output the results
+    printf("Number of statements: %d\n", statement_count);
+    printf("Number of integers: %d\n", integer_count);
+    printf("Number of assignment operators: %d\n", assignment_operator_count);
+    printf("Number of relational operators: %d\n", relational_operator_count);
+    printf("Number of identifiers: %d\n", identifier_count);
+
+    return 0;
 }
 
