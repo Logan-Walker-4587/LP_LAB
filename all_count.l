@@ -13,24 +13,21 @@ int identifier_count = 0;
 
 %%
 
-
 ";"              { statement_count++; }
-
 
 [0-9]+           { integer_count++; }
 
-
 "="              { assignment_operator_count++; }
-
 
 "=="|"<"|"<="|">"|">="|"!="  { relational_operator_count++; }
 
+"include"|"stdio.h"|"if"|"else"|"while"|"for"|"printf"|"int"|"char"|"float"|"do"|"static" {
+
+}
 
 [a-zA-Z_][a-zA-Z0-9_]*   { identifier_count++; }
 
-
 [ \t\n\r]+       { /* Ignore whitespace */ }
-
 
 .                { /* Ignore everything else */ }
 
