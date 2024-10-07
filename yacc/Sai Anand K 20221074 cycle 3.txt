@@ -1,0 +1,229 @@
+/* Sai Anand K
+20221074
+yacc to accept a valid arithmetic expression
+*/
+// lex program
+%{
+    #include "y.tab.h"
+%}
+
+%%
+[0-9]+            { yylval = atoi(yytext); return NUM; }
+[a-zA-Z_][a-zA-Z0-9_]*  { return ID; }
+
+"+"               { return PLUS; }
+"-"               { return MINUS; }
+"*"               { return MUL; }
+"/"               { return DIV; }
+"="               { return EQUALS; }
+";"               { return SEMICOLON; }
+
+[\t\n ]+          ;  // Ignore whitespaces
+
+.                 { yyerror("Invalid character"); }
+
+%%
+
+int yywrap() {
+    return 1;
+}
+
+// yacc program 
+%{
+    #include <stdio.h>
+    void yyerror(const char *);
+%}
+
+%token ID NUM
+%token PLUS MINUS MUL DIV EQUALS SEMICOLON
+
+%%
+
+expression: ID EQUALS term operator term SEMICOLON { printf("Valid expression\n"); }
+;
+
+term: ID
+    | NUM
+;
+
+operator: PLUS
+        | MINUS
+        | MUL
+        | DIV
+;
+
+%%
+
+void yyerror(const char *s) {
+    fprintf(stderr, "Error: %s\n", s);
+}
+
+int main(void) {
+    printf("Enter an arithmetic expression: ");
+    return yyparse();
+}
+/***********output**********
+Enter an arithmetic expression:
+a = b * c ;
+Valid expression
+b = 5 /
+Error: syntax error
+****************************/
+/* Sai Anand K
+20221074
+yacc to accept a valid if statement
+*/
+// lex program 
+%{
+    #include "y.tab.h"
+%}
+
+%%
+"if"            { return IF; }
+"end"           { return END; }
+"("             { return LPAREN; }
+")"             { return RPAREN; }
+"{"             { return LBRACE; }
+"}"             { return RBRACE; }
+
+">="            { return GE; }
+"<="            { return LE; }
+"=="            { return EQ; }
+"!="            { return NEQ; }
+">"             { return GT; }
+"<"             { return LT; }
+"="             { return EQUALS; }
+"+"             { return PLUS; }
+"-"             { return MINUS; }
+"*"             { return MUL; }
+"/"             { return DIV; }
+";"             { return SEMICOLON; }
+
+[0-9]+          { yylval = atoi(yytext); return NUM; }
+[a-zA-Z_][a-zA-Z0-9_]* { return ID; }
+
+[\t\n ]+        ;  // Ignore whitespace
+
+.               { yyerror("Invalid character"); }
+
+%%
+
+int yywrap() {
+    return 1;
+}
+
+// yacc program 
+%{
+    #include <stdio.h>
+    void yyerror(const char *);
+%}
+
+%token IF LPAREN RPAREN LBRACE RBRACE END SEMICOLON
+%token ID NUM EQUALS PLUS MINUS MUL DIV EQ NEQ GT LT GE LE
+
+%% 
+
+program: if_stmt END SEMICOLON { printf("Valid IF statement\n"); }
+;
+
+if_stmt: IF LPAREN condition RPAREN LBRACE statements RBRACE
+;
+
+condition: expression
+;
+
+expression: ID GT ID
+          | ID LT ID
+          | ID GE ID
+          | ID LE ID
+          | ID EQ ID
+          | ID NEQ ID
+          | ID // Simple identifier as condition
+;
+
+statements: statement
+          | statements statement
+;
+
+statement: ID EQUALS term SEMICOLON // Correctly define assignment
+;
+
+term: ID
+    | NUM
+;
+
+%% 
+
+void yyerror(const char *s) {
+    fprintf(stderr, "Error: %s\n", s);
+}
+
+int main(void) {
+    printf("Enter an IF statement:\n");
+    return yyparse();
+}
+
+/***********output*************
+Enter an IF statement:
+if (a > b) { a = b; } end;
+Valid IF statement
+if (a >) { a = b; } end;
+Error: syntax error
+*******************************/
+
+/* Sai Anand K
+20221074
+yacc to accept a^n b^n 
+*/
+// lex program 
+%{
+    #include "y.tab.h"  // Include the YACC header file
+%}
+
+%%
+a   return A;
+b   return B;
+
+\n  return 0;  // Handle newline to indicate end of input
+
+.   yyerror("Invalid character");  // Handle invalid characters
+
+%%
+int yywrap() {
+    return 1;
+}
+
+// yacc program 
+%{
+    #include <stdio.h>
+    void yyerror(const char *);
+%}
+
+%token A B
+
+%%
+
+S: A L B { printf("Accepted: a^n b^n\n"); }
+;
+
+L: A L B  { /* Recursive for a^n b^n */ }
+| /* epsilon (empty string) */
+;
+
+%%
+
+void yyerror(const char *s) {
+    fprintf(stderr, "Error: %s\n", s);
+}
+
+int main(void) {
+    printf("enter a string : ");
+    return yyparse();
+}
+
+/***********output************
+enter a string : aabb
+Accepted: a^n b^n
+enter a string : aaab
+Error: syntax error
+*******************************/
