@@ -1,34 +1,51 @@
 %{
     #include <stdio.h>
-    void yyerror(const char *);
+    #include <stdlib.h>
+
+    int yylex(void);
+    int yyerror(const char *s);
 %}
 
-%token ID NUM
-%token PLUS MINUS MUL DIV EQUALS SEMICOLON
+%token NUMBER ID
+
+// Define the operator precedence and associativity
+%left '+' '-'
+%left '*' '/' '%'
+
+// Rule Section
+%%
+S : Assignment ';' { printf("Valid arithmetic expression\n"); }
+  ;
+
+Assignment : Term '=' Expression
+           ;
+
+Expression : Expression Operator Expression
+           | '(' Expression ')'
+           | Term
+           ;
+
+Term : NUMBER
+     | ID
+     ;
+
+Operator : '+'
+         | '-'
+         | '*'
+         | '/'
+         | '%'
+         ;
 
 %%
 
-expression: ID EQUALS term operator term SEMICOLON { printf("Valid expression\n"); }
-;
-
-term: ID
-    | NUM
-;
-
-operator: PLUS
-        | MINUS
-        | MUL
-        | DIV
-;
-
-%%
-
-void yyerror(const char *s) {
-    fprintf(stderr, "Error: %s\n", s);
+int main() {
+    printf("Enter the expression:\n");
+    yyparse();
+    return 0;
 }
 
-int main(void) {
-    printf("Enter an arithmetic expression: ");
-    return yyparse();
+int yyerror(const char* s) {
+    printf("Invalid arithmetic expression\n");
+    return 0;
 }
 
