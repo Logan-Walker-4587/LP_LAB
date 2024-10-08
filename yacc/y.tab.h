@@ -55,25 +55,23 @@ extern int yydebug;
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
     IF = 258,                      /* IF  */
-    LPAREN = 259,                  /* LPAREN  */
-    RPAREN = 260,                  /* RPAREN  */
-    LBRACE = 261,                  /* LBRACE  */
-    RBRACE = 262,                  /* RBRACE  */
-    END = 263,                     /* END  */
-    SEMICOLON = 264,               /* SEMICOLON  */
+    ELSE = 259,                    /* ELSE  */
+    END = 260,                     /* END  */
+    LPAREN = 261,                  /* LPAREN  */
+    RPAREN = 262,                  /* RPAREN  */
+    LBRACE = 263,                  /* LBRACE  */
+    RBRACE = 264,                  /* RBRACE  */
     ID = 265,                      /* ID  */
-    NUM = 266,                     /* NUM  */
-    EQUALS = 267,                  /* EQUALS  */
-    PLUS = 268,                    /* PLUS  */
-    MINUS = 269,                   /* MINUS  */
-    MUL = 270,                     /* MUL  */
-    DIV = 271,                     /* DIV  */
-    EQ = 272,                      /* EQ  */
-    NEQ = 273,                     /* NEQ  */
-    GT = 274,                      /* GT  */
-    LT = 275,                      /* LT  */
-    GE = 276,                      /* GE  */
-    LE = 277                       /* LE  */
+    REL_OP = 266,                  /* REL_OP  */
+    ASSIGN_OP = 267,               /* ASSIGN_OP  */
+    ADD_OP = 268,                  /* ADD_OP  */
+    SUB_OP = 269,                  /* SUB_OP  */
+    MUL_OP = 270,                  /* MUL_OP  */
+    DIV_OP = 271,                  /* DIV_OP  */
+    MOD_OP = 272,                  /* MOD_OP  */
+    SEMICOLON = 273,               /* SEMICOLON  */
+    NUM = 274,                     /* NUM  */
+    EQ_OP = 275                    /* EQ_OP  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -83,25 +81,23 @@ extern int yydebug;
 #define YYerror 256
 #define YYUNDEF 257
 #define IF 258
-#define LPAREN 259
-#define RPAREN 260
-#define LBRACE 261
-#define RBRACE 262
-#define END 263
-#define SEMICOLON 264
+#define ELSE 259
+#define END 260
+#define LPAREN 261
+#define RPAREN 262
+#define LBRACE 263
+#define RBRACE 264
 #define ID 265
-#define NUM 266
-#define EQUALS 267
-#define PLUS 268
-#define MINUS 269
-#define MUL 270
-#define DIV 271
-#define EQ 272
-#define NEQ 273
-#define GT 274
-#define LT 275
-#define GE 276
-#define LE 277
+#define REL_OP 266
+#define ASSIGN_OP 267
+#define ADD_OP 268
+#define SUB_OP 269
+#define MUL_OP 270
+#define DIV_OP 271
+#define MOD_OP 272
+#define SEMICOLON 273
+#define NUM 274
+#define EQ_OP 275
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
